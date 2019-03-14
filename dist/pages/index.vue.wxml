@@ -1,0 +1,3 @@
+<template name="52d7a68d">
+  <view class="_div data-v-cadb9530 container" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></view>
+</template>

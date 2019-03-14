@@ -1,0 +1,7 @@
+<import src="/components/card.vue.wxml" /><template name="2e5678c9">
+  <view class="_div data-v-71a8bce4">
+    <view class="_ul data-v-71a8bce4 container log-list">
+      <view wx:key="index" key="{{index}}" class="_li data-v-71a8bce4 log-item {{[aa ? 'red' : '']}}" wx:for="{{logs}}" wx:for-index="index" wx:for-item="log"><template data="{{...$root[$kk+'0_'+index], $root}}" is="1a76ca2f"></template></view>
+    </view>
+  </view>
+</template>

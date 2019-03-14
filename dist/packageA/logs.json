@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-tag": "/vant-weapp/dist/tag/index"
+  },
+  "navigationBarTitleText": "查看启动日志"
+}
