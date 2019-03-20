@@ -2,36 +2,34 @@
 export default {
   globalConfig: {
     usingComponents: {
-      'van-tag': 'vant-weapp/dist/tag/index'
+      "van-notice-bar": "vant/notice-bar/index", //通知
+      "van-search": "vant/search/index", //搜索
+      "van-loading": "vant/loading/index", //加载
+      "van-tab": "vant/tab/index",
+      "van-tabs": "vant/tabs/index"
     }
   },
-  created () {
+  created() {
     // 调用API从本地缓存中获取数据
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // eslint-disable-next-line
-    console.log('app created and cache logs by setStorageSync')
+    const logs = wx.getStorageSync("logs") || [];
+    logs.unshift(Date.now());
+    wx.setStorageSync("logs", logs);
   }
-}
+};
 </script>
 
 <style>
 .container {
-  height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
 }
 /* this rule will be remove */
-* {
+/* * {
   transition: width 2s;
   -moz-transition: width 2s;
   -webkit-transition: width 2s;
   -o-transition: width 2s;
-}
+} */
 </style>

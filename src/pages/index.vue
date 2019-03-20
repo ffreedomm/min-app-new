@@ -1,6 +1,7 @@
 <template>
-  <div class="contain">
-    <swiper
+  <div>
+    <NavigationBar title="首页"/>
+    <swiper class="swiper"
       :indicator-dots="indicatorDots"
       :autoplay="autoplay"
       :interval="interval"
@@ -8,27 +9,27 @@
     >
       <block v-for="(item, index) in imgUrls" :key="index">
         <swiper-item>
-          <image :src="item" class="slide-image" width="375" height="150">
+          <image :src="item"></image>
         </swiper-item>
       </block>
     </swiper>
-    <indexItem :items="arrs"/>
-    <text class="notice">通知：请好好的背诵诗词！！！</text>
+    <van-notice-bar
+      left-icon="http://img2.imgtn.bdimg.com/it/u=1141432067,4033959809&fm=214&gp=0.jpg"
+      text="足协杯战线连续第2年上演广州德比战，上赛季半决赛上恒大以两回合5-3的总比分淘汰富力。"
+    />
+    <indexItem :items="arrs" v-on:toDetail="toDetail"/>
   </div>
 </template>
 
 <script>
-import card from "@/components/card";
 import indexItem from "@/components/indexItem";
 export default {
-  mpType: "page",
-
   data() {
     return {
       imgUrls: [
-        "https://clubimg.club.vmall.com/data/attachment/forum/201510/13/165656da3tah0raait2adv.png",
-        "https://clubimg.club.vmall.com/data/attachment/forum/201510/13/165656da3tah0raait2adv.png",
-        "https://clubimg.club.vmall.com/data/attachment/forum/201510/13/165656da3tah0raait2adv.png"
+        "http://img2.3lian.com/2014cf/f4/90/d/158.jpg",
+        "http://img2.3lian.com/2014cf/f4/90/d/159.jpg",
+        "http://img2.3lian.com/2014cf/f4/90/d/160.jpg"
       ],
       indicatorDots: true,
       autoplay: true,
@@ -39,20 +40,36 @@ export default {
   },
 
   components: {
-    card,
-    indexItem
+    indexItem,
   },
-
-  mounted() {
+  onLoad() {
     for (let i = 0; i < 9; i++) {
       this.arrs[i] = {
-        imgSrc: "/static/tabs/orders-active.png",
+        imgSrc: "http://imgsrc.baidu.com/forum/w%3D580%3B/sign=93c716cf9fcad1c8d0bbfc2f4f056509/d1160924ab18972b778e062aeccd7b899f510a9d.jpg",
         imgText: "测试" + i
       };
     }
   },
 
   methods: {
+    toDetail(index){
+      let targetPage = "";
+      switch(index){
+        case 0: targetPage="/pages/news/newList";break
+        case 1: targetPage="/pages/xiaoshuo/xiaoshuoList";break
+        case 2: targetPage="/pages/detail";break
+        case 3: targetPage="/pages/detail";break
+        case 4: targetPage="/pages/detail";break
+        case 5: targetPage="/pages/detail";break
+        case 6: targetPage="/pages/detail";break
+        case 7: targetPage="/pages/detail";break
+        case 8: targetPage="/pages/detail";break
+        default: targetPage="";break
+      }
+        //this.navigationPush("/pages/xiaoshuo/xiaoshuoList",this.arrs[index]);
+        this.navigationPush(targetPage,this.arrs[index]);
+    },
+
     getUserInfo() {
       // 调用登录接口
       wx.login({
@@ -64,13 +81,6 @@ export default {
           });
         }
       });
-    },
-    clickHandle() {
-      // let params = {
-      //   id: 1,
-      //   name: 'ssssss44s'
-      // }
-      this.navigationPush("/pages/logs");
     }
   },
 
@@ -82,37 +92,12 @@ export default {
 </script>
 
 <style scoped>
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.swiper{
+  width: 100%;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-}
-
-.counter {
-  display: inline-block;
-  margin: 10px auto;
-  padding: 5px 10px;
-  color: blue;
-  border: 1px solid blue;
-}
+  .swiper image{
+width: 100%;
+  }
 .notice {
   margin-left: 8px;
   color: red;

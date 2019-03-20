@@ -1,20 +1,20 @@
 <template>
-  <div class="container" @click="clickHandle()">
-      mine
+  <div class="container" @click="clickHandle()">mine
+    <scroll>
+      <div v-for="(it, indexa) in 33" :key="indexa">44</div>
+    </scroll>
   </div>
 </template>
 
 <script>
-import card from '@/components/card'
+import card from "@/components/card";
 
 export default {
-  mpType: 'page',
-
-  data () {
+  data() {
     return {
-      motto: 'Hello World',
+      motto: "Hello World",
       userInfo: {}
-    }
+    };
   },
 
   components: {
@@ -22,32 +22,32 @@ export default {
   },
 
   methods: {
-    getUserInfo () {
+    getUserInfo() {
       // 调用登录接口
       wx.login({
         success: () => {
           wx.getUserInfo({
-            success: (res) => {
-              this.userInfo = res.userInfo
+            success: res => {
+              this.userInfo = res.userInfo;
             }
-          })
+          });
         }
-      })
+      });
     },
-    clickHandle () {
+    clickHandle() {
       // let params = {
       //   id: 1,
       //   name: 'ssssss44s'
       // }
-      this.navigationPush('/pages/logs')
+      this.navigationPush("/pages/logs");
     }
   },
 
-  created () {
+  created() {
     // 调用应用实例的方法获取全局数据
-    this.getUserInfo()
+    this.getUserInfo();
   }
-}
+};
 </script>
 
 <style scoped>
@@ -67,7 +67,6 @@ export default {
 .userinfo-nickname {
   color: #aaa;
 }
-
 
 .form-control {
   display: block;

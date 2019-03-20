@@ -1,4 +1,0 @@
-<template name="3f581778">
-  <view bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_div data-v-0bee9e09"> kkkkk====={{ss.id}}{{ss.name}}
-  </view>
-</template>
