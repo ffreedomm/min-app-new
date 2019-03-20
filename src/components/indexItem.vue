@@ -1,11 +1,7 @@
 <template>
       <div class="item">
-          <div class="imgItem" v-for="(item, index) in items" :key="index">
-                <image class="img" :src="item.imgSrc"></image>
-                <text calss="text"> 
-                    {{item.imgText}}
-                </text>
-          </div>
+        <image class="img" :src="item.imgSrc" v-for="(item, index) in items" :key="index" 
+        @click="toDetail(index)"></image>
       </div>
 </template>
 
@@ -13,38 +9,45 @@
 export default {
   props: {
     items: Object
+  },
+  methods:{
+      toDetail(index){
+          this.$emit("toDetail",index);
+      }
   }
 }
 </script>
 
 <style>
 .item{
-    width: 375px;
+    margin-top: 15px;
+    width: 100%;
     flex-direction: row;
     display: flex;
     flex-wrap: wrap;
 }
 .imgItem{
-    width: 110px;
-    height: 110px;
+    width: 220rpx;
+    height: 220rpx;
     flex-direction: column;
     display: flex;
     align-items: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #888;
-    margin-left: 9px;
+    align-content: center;
     margin-top: 9px;
     
 }
 .img{
-    padding-top: 15px;
-    width: 38px;
-    height: 38px;
-}
-.text{
-    height: 30xp;
+    align-content: center;
+    align-items: center;
+    width: 220rpx;
+    height: 220rpx;
+    border-radius: 100px;
     margin-top: 10px;
-    font-size: 13pt;
+    margin-left: 12px;
+}
+.textStyle{
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
 }
 </style>
