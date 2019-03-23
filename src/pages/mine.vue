@@ -12,6 +12,10 @@ import card from "@/components/card";
 export default {
   data() {
     return {
+<<<<<<< HEAD
+=======
+      motto: "Hello World",
+>>>>>>> 9cd03d66a43e1d1f65f5b9bb34e271d5e5cf651e
       userInfo: {}
     };
   },
