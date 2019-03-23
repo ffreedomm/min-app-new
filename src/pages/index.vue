@@ -24,7 +24,7 @@
 <script>
 import indexItem from "@/components/indexItem";
 export default {
-  data() {
+  data() {//
     return {
       imgUrls: [
         "http://img2.3lian.com/2014cf/f4/90/d/158.jpg",
